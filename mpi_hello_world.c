@@ -6,12 +6,12 @@ int main(int argc, char** argv) {
     MPI_Init(NULL, NULL);
 
     // Get the number of processes
-    int world_size;
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int size;
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     // Get the rank of the process
-    int world_rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     // Get the name of the processor
     char processor_name[MPI_MAX_PROCESSOR_NAME];
@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
 
     // Print off a hello world message
     printf("Hello world from processor %s, rank %d out of %d processors\n",
-           processor_name, world_rank, world_size);
+           processor_name, rank, size);
 
     // Finalize the MPI environment.
     MPI_Finalize();
